@@ -1,7 +1,7 @@
 <template>
-  <view className="thread-list">
-    <loading v-if="loading" />
-    <thread
+  <view class="thread-list">
+    <Loading v-if="loading" />
+    <Thread
       v-else
       v-for="t in threads"
       :key="t.id"
@@ -15,20 +15,14 @@
   </view>
 </template>
 
-<script>
-import Vue from 'vue'
+<script setup>
 import Loading from './loading'
 import Thread from './thread'
 
-export default {
-  name: "thread_list",
-  components: {loading: Loading, thread: Thread},
-  props: {
-    threads: {type: Array, default: []}, loading: {type: Boolean, default: true}, showNode: true
-  }
-}
+const props = defineProps({
+  threads: {type: Array, default: []},
+  loading: {type: Boolean, default: true},
+  showNode: {type: Boolean, default: true}
+})
+
 </script>
-
-<style scoped>
-
-</style>

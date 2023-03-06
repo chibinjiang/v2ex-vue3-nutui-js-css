@@ -7,7 +7,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    NutButton: typeof import('@nutui/nutui-taro')['Button']
-    NutToast: typeof import('@nutui/nutui-taro')['Toast']
+    Loading: typeof import('./src/components/loading.vue')['default']
+    Thread: typeof import('./src/components/thread.vue')['default']
+    Thread_list: typeof import('./src/components/thread_list.vue')['default']
   }
 }

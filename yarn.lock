@@ -2081,6 +2081,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/jquery@^2.0.40":
+  version "2.0.60"
+  resolved "https://repo.huaweicloud.com/repository/npm/@types/jquery/-/jquery-2.0.60.tgz#64d93c39f4c3ace0352081f31140cdbe803a7ddd"
+  integrity sha512-izi6OBEVrAwaHiqWITjOPBbVtcKZKAXTocJqPZsAKA2lvmbpFEyPSAxgcqmisbiMYj9EvrooUEPLHQeQqVMWAg==
+
 "@types/json-schema@*", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.npmmirror.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
@@ -12082,6 +12087,13 @@ thunky@^1.0.2:
   version "1.1.0"
   resolved "https://registry.npmmirror.com/thunky/-/thunky-1.1.0.tgz#5abaf714a9405db0504732bbccd2cedd9ef9537d"
   integrity sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==
+
+timeago.js@^3.0.2:
+  version "3.0.2"
+  resolved "https://repo.huaweicloud.com/repository/npm/timeago.js/-/timeago.js-3.0.2.tgz#32a67e7c0d887ea42ca588d3aae26f77de5e76cc"
+  integrity sha512-aVUZETb7Pg6Q6DFqcU2obSVDWKFuG6ZdWcgSSMxOJ+D7dlGf8w6h1JBHz9ChjUB9/lWK2ZDgZQGwzElw8WNzlw==
+  dependencies:
+    "@types/jquery" "^2.0.40"
 
 timed-out@^4.0.1:
   version "4.0.1"

@@ -52,6 +52,7 @@
     "@tarojs/plugin-html": "3.6.2",
     "@tarojs/plugin-framework-vue3": "3.6.2",
     "vue": "^3.0.0",
+    "timeago.js": "^3.0.2",
     "@nutui/nutui-taro": "^4.0.0",
     "@nutui/icons-vue-taro": "^0.0.9"
   },

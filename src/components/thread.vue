@@ -2,66 +2,51 @@
   <view class="thread" @tap="handleNavigate">
     <view class="info">
       <view>
-        <image :src="member.avatar_large" class="avatar"></image>
+        <image :src="props.member.avatar_large" class="avatar"></image>
       </view>
       <view class="middle">
-        <view :class="userNameCls"> {{ member.username }}</view>
+        <view :class="userNameCls"> {{ props.member.username }}</view>
         <view class="replies">
           <text class="mr10"> {{ time }} </text>
-          <text>评论 {{replies}} </text>
+          <text>评论 {{ props.replies }}</text>
         </view>
       </view>
-      <view class="node" v-if="node">
-        <text class="tag"> {{ node.title }} </text>
+      <view class="node" v-if="props.node">
+        <text class="tag"> {{ props.node.title }} </text>
       </view>
     </view>
-    <text class="title"> {{ title }} </text>
+    <text class="title"> {{ props.title }} </text>
   </view>
 </template>
 
 <script>
-import Vue from 'vue'
-import {eventCenter} from '@tarojs/taro'
+import {computed} from 'vue'
 import Taro from '@tarojs/taro'
-import {timeagoInst, Thread_DETAIL_NAVIGATE} from "../utils"
+import {timeagoInst} from "../utils"
 import './thread.css'
 
+const props = defineProps(
+    ['title', 'member', 'last_modified', 'replies', 'node', 'not_navi', 'tid']
+)
 
-export default {
-  name: "thread",
-  props: ['title', 'member', 'last_modified', 'replies', 'node', 'not_navi', 'tid'],
-  computed: {
-    time(){
-      return timeagoInst.format(this.last_modified * 1000, 'zh')
-    },
-    userNameCls (){
-      // choose name class
-      return `author ${this.not_navi ? 'bold': ''}`
-    }
-  },
-  filters: {
-    url(val) {
-      return 'https:' + val
-    }
-  },
-  methods: {
-    handleNavigate(){
-      const { tid, not_navi } = this.$props
-      console.log("Handle navigate: ", tid)
-      if (not_navi) {
-        return
-      }
-      // 设置当前的帖子
-      eventCenter.trigger(Thread_DETAIL_NAVIGATE, this.$props)
-      // this.$store.setThread(this.$props)
-      // 跳转到帖子详情
-      Taro.navigateTo({
-        url: '/pages/thread_detail/thread_detail',
-      })
-    }
+const time = computed(() => timeagoInst.format(props.last_modified * 1000, 'zh'))
+const userNameCls = computed(() => `author ${props.not_navi ? 'bold': ''}`)
+
+const handleNavigate = () => {
+  console.log("Handle navigate: ", props.tid)
+  if (props.not_navi) {
+    return
   }
-
+  // 跳转到帖子详情
+  Taro.navigateTo({
+    url: `/pages/thread_detail/thread_detail?id=${props.tid}`,
+  })
 }
+// filters: {  todo: 怎么办
+//   url(val) {
+//     return 'https:' + val
+//   }
+// },
 </script>
 
 <style scoped>
