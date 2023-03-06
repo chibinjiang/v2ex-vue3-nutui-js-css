@@ -40,3 +40,7 @@ onMounted(() => {
 //   fetchLatestTopic()
 // })
 </script>
+<style scoped>
+
+</style>
+

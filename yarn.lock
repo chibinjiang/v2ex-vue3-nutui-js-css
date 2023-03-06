@@ -12768,7 +12768,7 @@ vue-loader@^17.0.0:
 
 vue@^3.0.0:
   version "3.2.47"
-  resolved "https://registry.npmmirror.com/vue/-/vue-3.2.47.tgz#3eb736cbc606fc87038dbba6a154707c8a34cff0"
+  resolved "https://repo.huaweicloud.com/repository/npm/vue/-/vue-3.2.47.tgz#3eb736cbc606fc87038dbba6a154707c8a34cff0"
   integrity sha512-60188y/9Dc9WVrAZeUVSDxRQOZ+z+y5nO2ts9jWXSTkMvayiWxCWOWtBQoYjLeccfXkiiPZWAHcV+WTPhkqJHQ==
   dependencies:
     "@vue/compiler-dom" "3.2.47"
