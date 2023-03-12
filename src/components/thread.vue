@@ -2,7 +2,12 @@
   <view class="thread" @tap="handleNavigate">
     <view class="info">
       <view>
-        <image :src="member.avatar_large" class="avatar"></image>
+        <nut-avatar size="small">
+          <img :src="member.avatar_large" />
+        </nut-avatar>
+<!--        <image :src="member.avatar_large" class="avatar"></image>-->
+<!--        <nut-avatar size="small" :icon="member.avatar_large"></nut-avatar>-->
+<!--        <nut-icon class="icon" name="right" size="12"></nut-icon>-->
       </view>
       <view class="middle">
         <view :class="userNameCls"> {{ member.username }}</view>
@@ -22,7 +27,8 @@
 <script>
 import {computed} from 'vue'
 import Taro from '@tarojs/taro'
-import {timeagoInst} from "../utils"
+import {eventCenter} from '@tarojs/taro'
+import {timeagoInst, Thread_DETAIL_NAVIGATE} from "../utils"
 import './thread.css'
 
 export default {
@@ -36,6 +42,8 @@ export default {
       if (props.not_navi) {
         return
       }
+      // 设置当前的帖子
+      eventCenter.trigger(Thread_DETAIL_NAVIGATE, props)
       // 跳转到帖子详情
       Taro.navigateTo({
         url: `/pages/thread_detail/thread_detail?id=${props.tid}`,

@@ -8,6 +8,13 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Loading: typeof import('./src/components/loading.vue')['default']
+    NutAvatar: typeof import('@nutui/nutui-taro')['Avatar']
+    NutButton: typeof import('@nutui/nutui-taro')['Button']
+    NutCell: typeof import('@nutui/nutui-taro')['Cell']
+    NutCellGroup: typeof import('@nutui/nutui-taro')['CellGroup']
+    NutDivider: typeof import('@nutui/nutui-taro')['Divider']
+    NutImagePreview: typeof import('@nutui/nutui-taro')['ImagePreview']
+    NutTag: typeof import('@nutui/nutui-taro')['Tag']
     Thread: typeof import('./src/components/thread.vue')['default']
     Thread_list: typeof import('./src/components/thread_list.vue')['default']
   }
